@@ -1,0 +1,15 @@
+body {
+	background-color: #ffce00;
+}
+* {
+	font-family: Verdana;
+}
+
+#F1 {
+	font-size: 20px;
+}
+
+.login-wrapper {
+	background: blue;
+	height: 100%; 
+}
