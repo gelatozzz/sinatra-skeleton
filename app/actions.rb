@@ -1,3 +1,6 @@
+
+
+require 'pry' 
 # Homepage (Root path)
 helpers do
 	def current_user
@@ -26,6 +29,10 @@ get '/profile' do
 	erb :profile
 end
 
+get '/pins/new' do
+	erb :new_pin
+end
+
 post '/login' do
 	username = params[:username]
 	password = params[:password]
@@ -51,6 +58,18 @@ post '/signup' do
 		user = User.create(username: username, password: password)
 		session[:user_id] = user.id 
 		redirect '/'
+	end
+end
+
+
+ post '/pins/create' do
+	post = params[:post]
+	comment = params[:comment]
+	pin = current_user.pins.create(posts: post, comments: comment)
+	if pin
+		redirect '/'
+	else
+		redirect '/signup'
 	end
 end
 
