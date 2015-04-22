@@ -61,18 +61,36 @@ post '/signup' do
 	end
 end
 
-
  post '/pins/create' do
 	post = params[:post]
 	comment = params[:comment]
 	pin = current_user.pins.create(posts: post, comments: comment)
 	if pin
-		redirect '/'
+		redirect "/pins/#{pin.id}"
 	else
 		redirect '/signup'
 	end
 end
 
+get '/pins/:id' do
+ 	@pin = Pin.find params[:id]
+ 	erb :pin
+end
+
 post '/profile' do
 	redirect '/'
+end
+
+get '/profile/edit' do
+	current_user
+	erb :profile
+end
+
+post '/profile/edit' do
+	username = params[:username]
+	email = params[:email]
+	password =params[:password]
+
+	current_user.update username: username, email: email, password: password
+	redirect '/pins/new'
 end
