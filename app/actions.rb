@@ -78,7 +78,7 @@ get '/pins/:id' do
 end
 
 post '/profile' do
-	redirect '/'
+	redirect '/pin/new'
 end
 
 get '/profile/edit' do

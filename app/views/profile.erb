@@ -1,17 +1,17 @@
 
-<form action="/login" method="post">
+<form action="/profile/edit" method="post">
 	<div class="login-wrapper">
 		<img src="/images/logo.jpg">
 		<p>
-			<strong> LOGIN! </strong>
+			<strong> My Profile </strong>
 		</p>
 		<p>
 			<label for= "username" id="U1">Username</label>
-			<input type="text" id="username" value="<%= @current_user.username %>" 
+			<input type="text" id="username" value="<%= @current_user.username %>"> 
 		</p>
 		<p>
 			<label for= "password">Password </label>
-			<input type="password"  id="password" value=" <%= current_user.password%>"
+			<input type="password"  id="password" value=" <%= @current_user.password%>">
 		</p>
 		<p>
 			<input type="submit">
