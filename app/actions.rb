@@ -8,7 +8,12 @@ helpers do
 	end
 end
 
+before do
+	redirect '/login' if !current_user && request.path != '/login' && request.path !='/signup'
+end
+
 get '/' do
+	@pins = Pin.all.reverse
   erb :index
 
 end
@@ -18,6 +23,7 @@ get '/login' do
 end
 
 get '/logout' do
+	session[:user_id] = nil
 	erb :logout
 end
 
@@ -63,7 +69,7 @@ end
 
  post '/pins/create' do
 	post = params[:post]
-	comment = params[:comment]
+	comment = params[:body]
 	pin = current_user.pins.create(posts: post, comments: comment)
 	if pin
 		redirect "/pins/#{pin.id}"

@@ -1,1 +1,26 @@
 <h1>Home Page</h1>
+
+<% @pins.each_slice(3) do |slice| %>
+    <div class="row">
+    <% slice.each do |pin| %>
+        <div class="col-md-4 pin">
+            <a href="/pins/<%= pin.id %>"><img class="pin-image" src="<%= pin.posts %>"><br>
+            <h2><%= pin.comments %></h2></a>
+        </div>
+    <% end %>
+    </div>
+<% end %>
+
+<section id="pin-container">
+    <% @pins.each do |pin| %>
+        <div class="pin">
+            <img class="pin-image" src="<%= pin.posts %>"><br>
+            <h2><%= pin.comments %></h2>
+        </div>
+    <% end %>
+</section>
+
+<a href="/pins/new" class="btn btn-success">Add a Pin</a>
+
+
+

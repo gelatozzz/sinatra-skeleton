@@ -23,6 +23,13 @@
   <title></title>
 </head>
 <body>
-  <%= yield %>
+
+  <nav>
+    <% if current_user %>
+        <a href="/logout">Log out</a>
+    <% end %>
+</nav>
+<%= yield %>
+  
 </body>
 </html>

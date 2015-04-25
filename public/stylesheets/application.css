@@ -13,3 +13,18 @@ body {
 	background: blue;
 	height: 100%; 
 }
+
+#pin-container {
+	-webkit-column-count: 1;
+	-webkit-column-gap: 1px;
+}
+
+.pin {
+	margin: 100px;
+	width: 300%;
+}
+
+.pin-image {
+	width: 500px;
+	height: 400px;
+}
